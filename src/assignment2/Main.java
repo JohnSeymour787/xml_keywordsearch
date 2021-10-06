@@ -3,7 +3,6 @@ package assignment2;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 public class Main extends Application
@@ -12,7 +11,7 @@ public class Main extends Application
     public void start(Stage primaryStage)
     {
         MainView mainView = new MainView();
-        MainController controller = new MainController(mainView);
+        new MainController(mainView);
 
         Scene scene = new Scene(mainView.asParent(), 700, 500, Color.GREEN);
 
