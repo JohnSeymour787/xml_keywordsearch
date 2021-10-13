@@ -14,9 +14,9 @@ public class Movie
     private final ArrayList<String> languages;
     private final ArrayList<String> companies;
     private final ArrayList<Person> cast;
-    private final ArrayList<String> kws;
+    private final ArrayList<String> keywords;
 
-    public Movie(String title, int year, float rating, ArrayList<Person> directors, ArrayList<String> genres, ArrayList<Person> writers, ArrayList<String> countries, ArrayList<String> languages, ArrayList<String> companies, ArrayList<Person> cast, ArrayList<String> kws)
+    public Movie(String title, int year, float rating, ArrayList<Person> directors, ArrayList<String> genres, ArrayList<Person> writers, ArrayList<String> countries, ArrayList<String> languages, ArrayList<String> companies, ArrayList<Person> cast, ArrayList<String> keywords)
     {
         this.title = title;
         this.year = year;
@@ -28,7 +28,7 @@ public class Movie
         this.languages = languages;
         this.companies = companies;
         this.cast = cast;
-        this.kws = kws;
+        this.keywords = keywords;
     }
 
     public String getTitle()
@@ -81,8 +81,8 @@ public class Movie
         return cast;
     }
 
-    public ArrayList<String> getKws()
+    public ArrayList<String> getKeywords()
     {
-        return kws;
+        return keywords;
     }
 }
