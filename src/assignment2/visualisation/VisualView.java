@@ -49,11 +49,7 @@ public class VisualView
     	
     	gridPane.addRow(0,root);
         gridPane.addRow(3, hboxChart);
-        
-        /*Scene scene=new Scene(root,400,300);  
-        primaryStage.setScene(scene);  
-        primaryStage.setTitle("Radio Button Example");  
-        primaryStage.show(); */
+                
     }
 
     public Node asNode()
@@ -69,15 +65,7 @@ public class VisualView
     {
         return gridPane.getScene().getWindow();
     }
-    
-    /*public void setTopButtonHandler(EventHandler<ActionEvent> handler)
-    {
-    	btnBarChart.setOnAction(handler);
-    	group.selectedToggleProperty().addListener((observable, oldVal, newVal) 
-    			//-> System.out.println(newVal + " was selected")
-    			);
-    }*/
-
+       
     public void setBarButtonHandler(EventHandler<ActionEvent> handler)
     {
     	btnBarChart.setOnAction(handler);
