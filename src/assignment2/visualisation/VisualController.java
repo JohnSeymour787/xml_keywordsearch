@@ -37,6 +37,7 @@ public class VisualController implements XMLController {
 	Hashtable<String, Integer> tab = new Hashtable<String, Integer>();
 	String[] arr = { "mafia", "wedding", "organized-crime", "lawyer", "violence", "new-york-city", "1940s",
 			"extramarital-affair", "falling-down-stairs", "thompson-gun" };
+	int top = 3;
 
 	class Occurrence implements Comparable<Occurrence> {
 
@@ -127,9 +128,11 @@ public class VisualController implements XMLController {
 			e1.printStackTrace();
 		}
 
-		this.view.setSourceButtonHandler(event -> {
+		this.view.setBarButtonHandler(event -> {
 			try {
 
+				top = (int)this.view.getToggleGroup().getSelectedToggle().getUserData();
+				System.out.println(top);
 				CategoryAxis xAxis = new CategoryAxis();
 				NumberAxis yAxis = new NumberAxis();
 				xAxis.setLabel("Class Name");
@@ -140,9 +143,9 @@ public class VisualController implements XMLController {
 
 				XYChart.Series<String, Integer> series = new XYChart.Series<>();
 
-				series.getData().add(new XYChart.Data(occurs.get(0).keyword, occurs.get(0).freq));
-				series.getData().add(new XYChart.Data(occurs.get(1).keyword, occurs.get(1).freq));
-				series.getData().add(new XYChart.Data(occurs.get(2).keyword, occurs.get(2).freq));
+				for (int i = 0; i < top; i++) {
+					series.getData().add(new XYChart.Data(occurs.get(i).keyword, occurs.get(i).freq));
+				}
 				series.setName("Class Frequency");
 
 				bar.getData().add(series);
@@ -160,14 +163,14 @@ public class VisualController implements XMLController {
 
 		});
 
-		this.view.setLoadButtonHandler(event -> {
+		this.view.setPieButtonHandler(event -> {
 			try {
-
+				top = (int)this.view.getToggleGroup().getSelectedToggle().getUserData();
 				ObservableList<Data> list = FXCollections.observableArrayList();
 
-				list.addAll(new PieChart.Data(occurs.get(0).keyword, occurs.get(0).freq),
-						new PieChart.Data(occurs.get(1).keyword, occurs.get(1).freq),
-						new PieChart.Data(occurs.get(2).keyword, occurs.get(2).freq));
+				for (int i = 0; i < top; i++) {
+					list.add(new PieChart.Data(occurs.get(i).keyword, occurs.get(i).freq));
+				}
 
 				PieChart pieChart = new PieChart();
 				pieChart.setData(list);

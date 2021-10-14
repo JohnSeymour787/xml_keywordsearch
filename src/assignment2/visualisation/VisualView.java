@@ -31,10 +31,15 @@ public class VisualView
     	button1.setToggleGroup(group);  
         button2.setToggleGroup(group);  
         button3.setToggleGroup(group);  
-        button4.setToggleGroup(group);  
+        button4.setToggleGroup(group);
+        button1.setUserData(3);
+        button2.setUserData(5);
+        button3.setUserData(8);
+        button4.setUserData(10);
           
         root.setSpacing(10);  
         root.getChildren().addAll(button1,button2,button3,button4); 
+        button1.setSelected(true);
                 
     	btnBarChart.setMinWidth(100);    	
     	btnPieChart.setMinWidth(100);
@@ -55,18 +60,30 @@ public class VisualView
     {
         return gridPane;
     }
+    
+    public ToggleGroup getToggleGroup() {
+    	return group;
+    }
 
     public Window getViewWindow()
     {
         return gridPane.getScene().getWindow();
     }
+    
+    /*public void setTopButtonHandler(EventHandler<ActionEvent> handler)
+    {
+    	btnBarChart.setOnAction(handler);
+    	group.selectedToggleProperty().addListener((observable, oldVal, newVal) 
+    			//-> System.out.println(newVal + " was selected")
+    			);
+    }*/
 
-    public void setSourceButtonHandler(EventHandler<ActionEvent> handler)
+    public void setBarButtonHandler(EventHandler<ActionEvent> handler)
     {
     	btnBarChart.setOnAction(handler);
     }
 
-    public void setLoadButtonHandler(EventHandler<ActionEvent> handler)
+    public void setPieButtonHandler(EventHandler<ActionEvent> handler)
     {
     	btnPieChart.setOnAction(handler);
     }
