@@ -1,5 +1,7 @@
 package assignment2;
 
+import assignment2.search.SearchController;
+import assignment2.search.SearchView;
 import assignment2.source.SourceController;
 import assignment2.visualisation.VisualController;
 import assignment2.source.SourceView;
@@ -24,7 +26,8 @@ public class MainController
         view.addSearchScreenListener(event ->
         {
             // TODO() Create source screen view and update currentController, pass the controller the modelList, call view.updateDisplay
-            view.updateDisplay(new Label("Search"));
+            currentController = new SearchController(new SearchView());
+            view.updateDisplay(currentController.getViewNode());
         });
 
         view.addVisualisationScreenListener(event ->
