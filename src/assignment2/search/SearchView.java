@@ -9,6 +9,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
+import java.util.List;
+
 public class SearchView {
     private final GridPane gridPane;
     private final Label label;
@@ -41,9 +43,13 @@ public class SearchView {
         return gridPane;
     }
 
-    public String getTextArea() { return textArea.getText(); }
+    public void setTextArea(List<String> list) {
+        textArea.setText(list.get(0));
+    }
+    public String getMoviesTitles() { return inputTextField.getText(); }
 
     public void addSearchBtnListener(EventHandler<ActionEvent> listener) {
         buttonSearch.setOnAction(listener);
     }
+
 }
