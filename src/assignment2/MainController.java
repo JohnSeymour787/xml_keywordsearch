@@ -4,10 +4,10 @@ import assignment2.search.SearchController;
 import assignment2.search.SearchModel;
 import assignment2.search.SearchView;
 import assignment2.source.SourceController;
-import assignment2.visualisation.VisualController;
 import assignment2.source.SourceView;
+import assignment2.visualisation.VisualController;
 import assignment2.visualisation.VisualView;
-import javafx.scene.control.Label;
+
 import java.util.ArrayList;
 
 public class MainController
