@@ -26,7 +26,6 @@ public class MainController
 
         view.addSearchScreenListener(event ->
         {
-            // TODO() Create source screen view and update currentController, pass the controller the modelList, call view.updateDisplay
             currentController = new SearchController(new SearchView(), new SearchModel());
             view.updateDisplay(currentController.getViewNode());
         });
