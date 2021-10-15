@@ -5,17 +5,21 @@ import assignment2.source.SourceController;
 import javafx.scene.Node;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SearchController implements XMLController {
     private final SearchView view;
-    private File inputFile;
+    private final SearchModel model;
 
-    public SearchController(SearchView view) {
+    public SearchController(SearchView view, SearchModel model) {
         this.view = view;
-        this.inputFile = new File("imdb.xml");
+        this.model = model;
 
         this.view.addSearchBtnListener(e -> {
-            
+            List<String> list = new ArrayList<>();
+            String moviesTitles = this.view.getMoviesTitles();
+            list = this.model.searchKeywords(moviesTitles);
         });
 
     }
