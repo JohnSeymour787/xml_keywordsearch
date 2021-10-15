@@ -45,9 +45,11 @@ public class SearchView {
 
     public String getMoviesTitles() { return inputTextField.getText(); }
 
-    public void setTextArea(List<String> list) {
+    public void setTextArea(List<String> keywordsList) {
         try {
-            textArea.setText(list.get(0));
+            for (String keyword : keywordsList) {
+                textArea.appendText(keyword + "\n");
+            }
         } catch (Exception e) {
             textArea.setText("Please enter the keywords first!");
         }

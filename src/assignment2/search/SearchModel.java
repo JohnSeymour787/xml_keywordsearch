@@ -67,7 +67,6 @@ public class SearchModel {
         } catch (SAXException e) {
             e.printStackTrace();
         }
-
         return keywordsList;
     }
 }
