@@ -1,6 +1,5 @@
 package assignment2.search;
 
-import com.sun.org.apache.xml.internal.resolver.readers.SAXCatalogReader;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -21,8 +20,7 @@ public class SearchModel {
         List<String> keywordsList = new ArrayList<>();
 
         try {
-            File inputFile = new File("imdb.xml");
-
+            File inputFile = new File("xml_keywordsearch/src/assignment2/imdb.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             dbFactory.setIgnoringElementContentWhitespace(true);
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
