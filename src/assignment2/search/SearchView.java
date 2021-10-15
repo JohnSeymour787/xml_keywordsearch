@@ -19,10 +19,10 @@ public class SearchView {
 
     public SearchView() {
         gridPane = new GridPane();
-        label = new Label("Please enter a keyword to search the movie.");
+        label = new Label("Please enter the movie titles here");
         inputTextField = new TextField();
         buttonSearch = new Button("Search");
-        resultLabel = new Label("the result of searching keyword will be displayed here");
+        resultLabel = new Label("the keywords will be displayed here");
         textArea = new TextArea();
 
         gridPane.addRow(0, label);
