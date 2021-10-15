@@ -43,6 +43,8 @@ public class SearchView {
         return gridPane;
     }
 
+    public String getMoviesTitles() { return inputTextField.getText(); }
+
     public void setTextArea(List<String> list) {
         try {
             textArea.setText(list.get(0));
@@ -51,7 +53,6 @@ public class SearchView {
         }
 
     }
-    public String getMoviesTitles() { return inputTextField.getText(); }
 
     public void addSearchBtnListener(EventHandler<ActionEvent> listener) {
         buttonSearch.setOnAction(listener);
