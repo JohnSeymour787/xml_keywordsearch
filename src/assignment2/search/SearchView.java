@@ -23,7 +23,7 @@ public class SearchView {
 
     public SearchView() {
         gridPane = new GridPane();
-        label = new Label("Please enter the movie titles here");
+        label = new Label("Please enter one or more movie titles here, multiple movie titles should be separated by / (e.g title1/title2)");
         inputTextField = new TextField();
         buttonSearch = new Button("Search");
         resultLabel = new Label("Keywords will be displayed here");
@@ -57,7 +57,15 @@ public class SearchView {
     }
 
     public void addSearchBtnListener(EventHandler<ActionEvent> listener) {
-        buttonSearch.setOnAction(listener);
+
+        try {
+            buttonSearch.setOnAction(listener);
+        } catch (Exception e) {
+            textArea.setText("Please enter the keywords first!");
+        }
     }
 
+    public void setTextArea() {
+        textArea.setText("Please enter the keywords first!");
+    }
 }
