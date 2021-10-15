@@ -26,7 +26,7 @@ public class SearchView {
         label = new Label("Please enter the movie titles here");
         inputTextField = new TextField();
         buttonSearch = new Button("Search");
-        resultLabel = new Label("the keywords will be displayed here");
+        resultLabel = new Label("Keywords will be displayed here");
         textArea = new TextArea();
 
         gridPane.addRow(0, label);
@@ -44,7 +44,12 @@ public class SearchView {
     }
 
     public void setTextArea(List<String> list) {
-        textArea.setText(list.get(0));
+        try {
+            textArea.setText(list.get(0));
+        } catch (Exception e) {
+            textArea.setText("Please enter the keywords first!");
+        }
+
     }
     public String getMoviesTitles() { return inputTextField.getText(); }
 
