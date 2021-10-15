@@ -1,5 +1,7 @@
 package assignment2.search;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -39,4 +41,9 @@ public class SearchView {
         return gridPane;
     }
 
+    public String getTextArea() { return textArea.getText(); }
+
+    public void addSearchBtnListener(EventHandler<ActionEvent> listener) {
+        buttonSearch.setOnAction(listener);
+    }
 }
