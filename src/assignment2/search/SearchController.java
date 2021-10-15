@@ -17,9 +17,10 @@ public class SearchController implements XMLController {
         this.model = model;
 
         this.view.addSearchBtnListener(e -> {
-            List<String> list = new ArrayList<>();
+            List<String> keywordsList;
             String moviesTitles = this.view.getMoviesTitles();
-            list = this.model.searchKeywords(moviesTitles);
+            keywordsList = this.model.searchKeywords(moviesTitles);
+            this.view.setTextArea(keywordsList);
         });
 
     }
