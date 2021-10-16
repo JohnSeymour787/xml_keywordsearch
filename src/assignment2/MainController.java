@@ -26,7 +26,7 @@ public class MainController
 
         view.addSearchScreenListener(event ->
         {
-            currentController = new SearchController(new SearchView(), new SearchModel());
+            currentController = new SearchController(new SearchView(), new SearchModel(), modelList);
             view.updateDisplay(currentController.getViewNode());
         });
 
