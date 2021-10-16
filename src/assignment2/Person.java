@@ -11,6 +11,13 @@ public class Person
         this.role = role;
     }
 
+    @Override
+    public String toString()
+    {
+        // Add the role if it isn't an empty string
+        return name + (role.length() > 1 ? " " + role : "");
+    }
+
     public String getName()
     {
         return name;

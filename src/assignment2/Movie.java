@@ -33,6 +33,45 @@ public class Movie
         this.keywords = keywords;
     }
 
+    @Override
+    public String toString()
+    {
+        return title + " (" + year + ")" + "\r\n" +
+               "Rating:" + rating + "\r\n" +
+               "Directors:\r\n" + displayArrayString(directors) + "\r\n" +
+                (genres != null ? "Genres: \r\n" + displayArrayString(genres) + "\r\n" : "") +
+               "Writers:\r\n" + displayArrayString(writers) + "\r\n" +
+               "Countries:\r\n" + displayArrayString(countries) + "\r\n" +
+                (mpaa != null ? "Mpaa: " + mpaa + "\r\n" : "") +
+               "Languages:\r\n" + displayArrayString(languages) + "\r\n" +
+               "Companies:\r\n" + displayArrayString(companies) + "\r\n" +
+               "Cast:\r\n" + displayArrayString(cast) + "\r\n" +
+               "Keywords:\r\n" + displayArrayString(keywords);
+    }
+
+    /**
+     * Calls .toString() on an array of objects and concatenates the result into a single String object that appears
+     *  in a list format with newlines for each element.
+     * @param list - Array of any type
+     * @param <T> - Any object type with a .toString() implementation
+     * @return - String representing all elements combined as a bulleted list
+     */
+    private <T> String displayArrayString(ArrayList<T> list)
+    {
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < list.size(); i++)
+        {
+            result.append("  - ").append(list.get(i).toString());
+            // Add a new line if not the last element
+            if (i < list.size() - 1)
+            {
+                result.append("\r\n");
+            }
+        }
+        return result.toString();
+    }
+
     public String getMpaa()
     {
         return mpaa;

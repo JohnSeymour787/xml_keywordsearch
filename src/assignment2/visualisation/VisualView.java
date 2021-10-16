@@ -3,27 +3,28 @@ package assignment2.visualisation;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.Pane;
 import javafx.stage.Window;
 
 public class VisualView
 {
     private final GridPane gridPane = new GridPane();
     private final ToggleGroup group = new ToggleGroup();  
-    private final RadioButton button1 = new RadioButton("Top-3 correlated keywords");  
-    private final RadioButton button2 = new RadioButton("Top-5 correlated keywords");  
-    private final RadioButton button3 = new RadioButton("Top-8 correlated keywords");  
-    private final RadioButton button4 = new RadioButton("Top-10 correlated keywords");
+    private final RadioButton button1 = new RadioButton("Top-3 keywords");  
+    private final RadioButton button2 = new RadioButton("Top-5 keywords");  
+    private final RadioButton button3 = new RadioButton("Top-8 keywords");  
+    private final RadioButton button4 = new RadioButton("Top-10 keywords");
     private final Button btnBarChart = new Button("Bar Chart");
     private final Button btnPieChart = new Button("Pie Chart");
-    private final VBox root=new VBox();
+    private final Pane pane = new Pane();
+    private final HBox root=new HBox();
     
     
     public VisualView()
@@ -48,7 +49,9 @@ public class VisualView
     	hboxChart.setAlignment(Pos.CENTER); 
     	
     	gridPane.addRow(0,root);
-        gridPane.addRow(3, hboxChart);
+    	gridPane.addRow(1, hboxChart);
+    	gridPane.addRow(2, pane);
+        
                 
     }
 
@@ -64,6 +67,11 @@ public class VisualView
     public Window getViewWindow()
     {
         return gridPane.getScene().getWindow();
+    }
+    
+    public void setPane(Group root) {
+    	pane.getChildren().clear();
+    	pane.getChildren().add(root);
     }
        
     public void setBarButtonHandler(EventHandler<ActionEvent> handler)
