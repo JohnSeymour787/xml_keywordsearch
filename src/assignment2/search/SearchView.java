@@ -23,7 +23,7 @@ public class SearchView {
 
     public SearchView() {
         gridPane = new GridPane();
-        label = new Label("Please enter one or more movie titles here, multiple movie titles should be separated by / (e.g title1/title2)");
+        label = new Label("Please enter one or more movie titles here, multiple movie titles should be separated by \"/\" (e.g title1/title2)");
         inputTextField = new TextField();
         buttonSearch = new Button("Search");
         resultLabel = new Label("Keywords will be displayed here");
