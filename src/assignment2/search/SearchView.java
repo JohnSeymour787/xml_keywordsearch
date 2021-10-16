@@ -23,7 +23,7 @@ public class SearchView {
 
     public SearchView() {
         gridPane = new GridPane();
-        label = new Label("Please enter one or more movie titles here, multiple movie titles should be separated by / (e.g title1/title2)");
+        label = new Label("Please enter one or more movie titles here, multiple movie titles should be separated by \"/\" (e.g title1/title2)");
         inputTextField = new TextField();
         buttonSearch = new Button("Search");
         resultLabel = new Label("Keywords will be displayed here");
@@ -38,34 +38,13 @@ public class SearchView {
         gridPane.addRow(3, textArea);
     }
 
-    public Node asNode()
-    {
-        return gridPane;
-    }
+    public Node asNode() { return gridPane; }
 
     public String getMoviesTitles() { return inputTextField.getText(); }
 
-    public void setTextArea(List<String> keywordsList) {
-        try {
-            for (String keyword : keywordsList) {
-                textArea.appendText(keyword + "\n");
-            }
-        } catch (Exception e) {
-            textArea.setText("Please enter the keywords first!");
-        }
-
-    }
+    public void setTextArea(String str) { textArea.setText(str); }
 
     public void addSearchBtnListener(EventHandler<ActionEvent> listener) {
-
-        try {
-            buttonSearch.setOnAction(listener);
-        } catch (Exception e) {
-            textArea.setText("Please enter the keywords first!");
-        }
-    }
-
-    public void setTextArea() {
-        textArea.setText("Please enter the keywords first!");
+         buttonSearch.setOnAction(listener);
     }
 }

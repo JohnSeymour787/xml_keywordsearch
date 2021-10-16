@@ -1,5 +1,6 @@
 package assignment2.search;
 
+import assignment2.Movie;
 import assignment2.XMLController;
 import javafx.scene.Node;
 
@@ -8,36 +9,42 @@ import java.util.List;
 
 public class SearchController implements XMLController {
     private final SearchView view;
-    private final SearchModel model;
+    private final ArrayList<Movie> movieList;
+    private final List<String> keywordsList;
 
-    public SearchController(SearchView view, SearchModel model) {
+    public SearchController(SearchView view, ArrayList<Movie> movieList, List<String> keywordsList) {
         this.view = view;
-        this.model = model;
+        this.movieList = movieList;
+        this.keywordsList = keywordsList;
 
-        try {
-            this.view.addSearchBtnListener(e -> {
-                List<String> keywordsListMovies = new ArrayList<>();
-                String inputString = this.view.getMoviesTitles();
-                String[] inputTitles = splitInputTitle(inputString);
-                for (String title : inputTitles) {
-                    List<String> l = this.model.searchKeywords(title);
-                    String lines[] = l.get(0).split("\\r?\\n");
-                    List<String> li = new ArrayList<>();
-                    for (int i = 1; i < lines.length; i++) {
-                        li.add(lines[i]);
-                    }
-                    keywordsListMovies.addAll(li);
-                }
-                this.view.setTextArea(keywordsListMovies);
-            });
-        } catch (Exception e) {
-            System.out.println("!!!!!");
-        }
+        this.view.addSearchBtnListener(e -> {
+            keywordsList.clear();
+            String inputString = this.view.getMoviesTitles();
+            String[] inputTitles = splitInputTitle(inputString);
+            String strOutput = searchMovies(movieList, inputTitles, keywordsList);
+            this.view.setTextArea(strOutput);
+        });
     }
 
     private String[] splitInputTitle(String inputString) {
         String[] inputTitles = inputString.split("/");
         return inputTitles;
+    }
+
+    private String searchMovies(ArrayList<Movie> movieList, String[] inputTitles, List<String> keywordsList) {
+        String output = "";
+        for (Movie movie : movieList) {
+            String movieTitle = movie.getTitle();
+            for (String str : inputTitles) {
+                if (str.equalsIgnoreCase(movieTitle)) {
+                    keywordsList.addAll(movie.getKeywords());
+                    for (String keyword : movie.getKeywords()) {
+                        output += keyword + "\r\n";
+                    }
+                }
+            }
+        }
+        return output;
     }
 
     public Node getViewNode()
