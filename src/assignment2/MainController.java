@@ -8,10 +8,12 @@ import assignment2.visualisation.VisualController;
 import assignment2.visualisation.VisualView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainController
 {
     private final ArrayList<Movie> modelList = new ArrayList<>();
+    private final List<String> keywordsList = new ArrayList<>();
     private XMLController currentController;
 
     public MainController(MainView view)
@@ -25,7 +27,7 @@ public class MainController
 
         view.addSearchScreenListener(event ->
         {
-            currentController = new SearchController(new SearchView(), modelList);
+            currentController = new SearchController(new SearchView(), modelList, keywordsList);
             view.updateDisplay(currentController.getViewNode());
         });
 

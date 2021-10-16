@@ -10,13 +10,15 @@ import java.util.List;
 public class SearchController implements XMLController {
     private final SearchView view;
     private final ArrayList<Movie> movieList;
+    private final List<String> keywordsList;
 
-    public SearchController(SearchView view, ArrayList<Movie> movieList) {
+    public SearchController(SearchView view, ArrayList<Movie> movieList, List<String> keywordsList) {
         this.view = view;
         this.movieList = movieList;
+        this.keywordsList = keywordsList;
 
         this.view.addSearchBtnListener(e -> {
-            List<String> keywordsList = new ArrayList<>();
+            keywordsList.clear();
             String inputString = this.view.getMoviesTitles();
             String[] inputTitles = splitInputTitle(inputString);
             String strOutput = searchMovies(movieList, inputTitles, keywordsList);
