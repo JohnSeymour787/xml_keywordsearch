@@ -38,10 +38,7 @@ public class SearchView {
         gridPane.addRow(3, textArea);
     }
 
-    public Node asNode()
-    {
-        return gridPane;
-    }
+    public Node asNode() { return gridPane; }
 
     public String getMoviesTitles() { return inputTextField.getText(); }
 
