@@ -4,12 +4,18 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Box;
+import javafx.scene.shape.Rectangle;
 
 /**
  * This class acts as the home screen view of the program. The main purpose of this class is to allow for navigation
@@ -36,7 +42,19 @@ public class MainView
         buttonBox.setSpacing(10);
         buttonBox.setPadding(new Insets(7, 3, 3, 3));
 
+        // Creating title label
+        Rectangle titleRectangle = new Rectangle();
+        titleRectangle.setHeight(35);
+        titleRectangle.setWidth(700);
+        titleRectangle.setFill(Paint.valueOf("#8bc34a"));
+        Label titleLabel = new Label("XML Keyword Search System");
+        titleLabel.setStyle("-fx-font: 24 arial;");
+        StackPane stack = new StackPane();
+        stack.getChildren().add(titleRectangle);
+        stack.getChildren().add(titleLabel);
+
         view.setAlignment(Pos.TOP_CENTER);
+        view.getChildren().add(stack);
         view.getChildren().add(buttonBox);
         view.getChildren().add(screenDisplay);
     }
