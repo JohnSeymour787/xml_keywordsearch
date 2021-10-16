@@ -1,7 +1,6 @@
 package assignment2;
 
 import assignment2.search.SearchController;
-import assignment2.search.SearchModel;
 import assignment2.search.SearchView;
 import assignment2.source.SourceController;
 import assignment2.source.SourceView;
@@ -26,7 +25,7 @@ public class MainController
 
         view.addSearchScreenListener(event ->
         {
-            currentController = new SearchController(new SearchView(), new SearchModel(), modelList);
+            currentController = new SearchController(new SearchView(), modelList);
             view.updateDisplay(currentController.getViewNode());
         });
 
