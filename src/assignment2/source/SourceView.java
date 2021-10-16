@@ -2,6 +2,7 @@ package assignment2.source;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -17,6 +18,7 @@ public class SourceView
 
     public SourceView()
     {
+        gridPane.setAlignment(Pos.TOP_CENTER);
         gridPane.addRow(0, chooseSourceButton);
         gridPane.addRow(1, loadSourceButton);
         gridPane.addRow(2, textArea);

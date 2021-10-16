@@ -6,6 +6,7 @@ import javax.swing.*;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 public class Main extends Application
@@ -22,9 +23,7 @@ public class Main extends Application
     	MainView mainView = new MainView();
     	mainView.updateDisplay(pane);
         new MainController(mainView);
-
-        Scene scene = new Scene(mainView.asParent(), 700, 500, Color.GREEN);
-
+        Scene scene = new Scene(mainView.asParent(), 700, 500);
         primaryStage.setTitle("XML Keyword Search System");
         primaryStage.setScene(scene);
         primaryStage.show();
