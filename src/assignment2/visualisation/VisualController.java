@@ -5,16 +5,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Hashtable;
+import java.util.List;
 
 import javax.swing.SwingUtilities;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-//import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import assignment2.XMLController;
@@ -41,20 +38,15 @@ import javafx.scene.chart.XYChart;
 
 public class VisualController implements XMLController {
 	private final VisualView view;
-	private File selectedFile = new File("./src/assignment2/imdb.xml");
-	Hashtable<String, Integer> tab = new Hashtable<String, Integer>();
-	String[] arr = { "mafia", "wedding", "organized-crime", "lawyer", "violence", "new-york-city", "1940s",
-			"extramarital-affair", "falling-down-stairs", "thompson-gun" };
-	int top = 3;
+	private Hashtable<String, Integer> tab = new Hashtable<String, Integer>();
+	private int top = 3;
+	private ArrayList<VisualModel> occurs = new ArrayList<VisualModel>();
 
-// Init the element list
-	ArrayList<VisualModel> occurs = new ArrayList<VisualModel>();
-
-	public VisualController(VisualView view) {
+	public VisualController(VisualView view, List<String> keywordsList) {
 		this.view = view;
 		  	
 
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		/*DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 
 		DocumentBuilder docBuilder = null;
 		try {
@@ -64,10 +56,10 @@ public class VisualController implements XMLController {
 		} catch (ParserConfigurationException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-		}
+		}*/
 
 		try {
-			Document doc = docBuilder.parse(selectedFile.getPath());
+			/*Document doc = docBuilder.parse(selectedFile.getPath());
 
 			doc.getDocumentElement().normalize();
 
@@ -97,30 +89,34 @@ public class VisualController implements XMLController {
 					}
 
 				}
+			}*/
+			
+			//creating index for each keyword
+			for (String s : keywordsList) {
+
+					if (tab.containsKey(s)) {
+						tab.replace(s, tab.get(s) + 1);
+					} else {
+						tab.put(s, 1);
+					}
+
 			}
+			
+			
 
 			for (String i : tab.keySet()) {
 				System.out.println("key: " + i + " value: " + tab.get(i));
+				occurs.add(new VisualModel(i, tab.get(i)));
 			}
 
-			for (int i = 0; i < arr.length; i++) {
-				occurs.add(new VisualModel(arr[i], tab.get(arr[i])));
-			}
-
-			// Sort and print
+			// Sort the collection in descending order
 			Collections.sort(occurs);
-			Collections.reverse(occurs); // If you want reverse order
-			for (VisualModel occ : occurs) {
-				System.out.println(occ.getKeyword() + " " + occ.getFreq());
-			}
+			Collections.reverse(occurs); 
 
-		} catch (SAXException e1) {
+		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		} 
 
 		this.view.setBarButtonHandler(event -> {
 			try {
@@ -154,12 +150,13 @@ public class VisualController implements XMLController {
 		this.view.setPieButtonHandler(event -> {
 			try {
 				top = (int)this.view.getToggleGroup().getSelectedToggle().getUserData();
-				ObservableList<Data> list = FXCollections.observableArrayList();
+				ArrayList<VisualModel> newArr = new ArrayList<VisualModel>();
 
+				/*ObservableList<Data> list = FXCollections.observableArrayList();
 				for (int i = 0; i < top; i++) {
 					list.add(new PieChart.Data(occurs.get(i).getKeyword(), occurs.get(i).getFreq()));
-				}
-
+				}				
+				
 				PieChart pieChart = new PieChart();
 				pieChart.setData(list);
 				pieChart.setLegendSide(Side.LEFT);
@@ -167,14 +164,19 @@ public class VisualController implements XMLController {
 				pieChart.setClockwise(false);
 
 				Group root = new Group();
-				//root.getChildren().add(pieChart);
-				//this.view.setPane(root);
+				root.getChildren().add(pieChart);
+				this.view.setPane(root);*/
+				
+				for (int i = 0; i < top; i++) {
+					newArr.add(occurs.get(i));
+				}
 				
 				final SwingNode swingNode = new SwingNode();
-		        createAndSetSwingContent(swingNode);
+		        createAndSetSwingContent(swingNode, newArr);
 
 		        StackPane pane = new StackPane();
 		        pane.getChildren().add(swingNode);
+		        Group root = new Group();
 		        root.getChildren().add(pane);
 		        this.view.setPane(root);
 				
@@ -185,11 +187,11 @@ public class VisualController implements XMLController {
 		});
 	}
 	
-	private void createAndSetSwingContent(final SwingNode swingNode) {
+	private void createAndSetSwingContent(final SwingNode swingNode, ArrayList<VisualModel> arr) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                swingNode.setContent(new PiePie());
+                swingNode.setContent(new PiePie(arr));
             }
         });
     }

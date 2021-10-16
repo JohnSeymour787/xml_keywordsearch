@@ -34,7 +34,7 @@ public class MainController
         view.addVisualisationScreenListener(event ->
         {
             // TODO() Create source screen view and update currentController, pass the controller the modelList, call view.updateDisplay
-        	currentController = new VisualController(new VisualView());
+        	currentController = new VisualController(new VisualView(), keywordsList);
         	view.updateDisplay(currentController.getViewNode());
         	//view.updateDisplay(new Label("Visualisation"));
         });
