@@ -13,6 +13,12 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Window;
 
+/**
+ * VisualView is the class responsible for the view part of creating bar and pie charts.
+ *
+ * @author Quinn Chan 103053395
+ * @version JDK 14.0.2 - 22/10/2021
+ */
 public class VisualView
 {
     private final GridPane gridPane = new GridPane();
@@ -69,11 +75,21 @@ public class VisualView
         return gridPane.getScene().getWindow();
     }
     
+    /**
+     * setPane is responsible for resetting the chart on display
+     *
+     * @param Group root
+     */
     public void setPane(Group root) {
     	pane.getChildren().clear();
     	pane.getChildren().add(root);
     }
        
+    /**
+     * setBarButtonHandler is responsible for handling the event of clicking the Bar Chart button.
+     *
+     * @param EventHandler<ActionEvent> handler
+     */
     public void setBarButtonHandler(EventHandler<ActionEvent> handler)
     {
     	btnBarChart.setOnAction(handler);
