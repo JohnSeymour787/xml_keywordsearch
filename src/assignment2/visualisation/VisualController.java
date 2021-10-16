@@ -167,16 +167,16 @@ public class VisualController implements XMLController {
 				pieChart.setClockwise(false);
 
 				Group root = new Group();
-				root.getChildren().add(pieChart);
-				this.view.setPane(root);
+				//root.getChildren().add(pieChart);
+				//this.view.setPane(root);
 				
-				/*final SwingNode swingNode = new SwingNode();
+				final SwingNode swingNode = new SwingNode();
 		        createAndSetSwingContent(swingNode);
 
 		        StackPane pane = new StackPane();
 		        pane.getChildren().add(swingNode);
 		        root.getChildren().add(pane);
-		        this.view.setPane(root);*/
+		        this.view.setPane(root);
 				
 			} catch (Exception e1) {
 				e1.printStackTrace();
