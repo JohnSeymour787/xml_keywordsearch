@@ -299,7 +299,7 @@ public class MovieHandler extends DefaultHandler
         }
         else if (personRoleRead)
         {
-            personRole = new String(ch, start, length);
+            personRole = new String(ch, start, length).trim();
             personRoleRead = false;
         }
         else if (genreItemRead)

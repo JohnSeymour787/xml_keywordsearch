@@ -30,8 +30,6 @@ public class SourceController implements XMLController
             selectedFile = chooser.showOpenDialog(view.getViewWindow());
         });
 
-
-
         this.view.setLoadButtonHandler(event ->
         {
             try
@@ -41,9 +39,24 @@ public class SourceController implements XMLController
                 MovieHandler handler = new MovieHandler(this.model);
                 saxParser.parse(selectedFile, handler);
 
+                displayMovies();
             }
             catch (ParserConfigurationException | SAXException | IOException e) { e.printStackTrace(); }
         });
+    }
+
+    private void displayMovies()
+    {
+        for (int i = 0; i < model.size(); i++)
+        {
+            view.appendTextField(model.get(i).toString());
+            view.appendTextField("---------------");
+
+            if (i < model.size() - 1)
+            {
+                view.appendTextField("\r\n");
+            }
+        }
     }
 
     public Node getViewNode()

@@ -44,6 +44,6 @@ public class SourceView
 
     public void appendTextField(String toAppend)
     {
-        textArea.appendText(toAppend);
+        textArea.appendText(toAppend + "\r\n");
     }
 }
