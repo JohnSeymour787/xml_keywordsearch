@@ -32,6 +32,8 @@ public class SourceController implements XMLController
 
         this.view.setLoadButtonHandler(event ->
         {
+            model.clear();
+
             try
             {
                 SAXParser saxParser = SAXParserFactory.newInstance().newSAXParser();
