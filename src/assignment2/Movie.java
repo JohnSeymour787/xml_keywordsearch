@@ -37,7 +37,7 @@ public class Movie
     public String toString()
     {
         return title + " (" + year + ")" + "\r\n" +
-               "Rating:" + rating + "\r\n" +
+               "Rating: " + rating + "\r\n" +
                "Directors:\r\n" + displayArrayString(directors) + "\r\n" +
                 (genres != null ? "Genres: \r\n" + displayArrayString(genres) + "\r\n" : "") +
                "Writers:\r\n" + displayArrayString(writers) + "\r\n" +
