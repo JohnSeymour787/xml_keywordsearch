@@ -32,7 +32,7 @@ import javafx.scene.chart.XYChart;
 /**
  * VisualController is the class responsible for the control part of creating bar and pie charts.
  *
- * @author Quinn Chan 103053395
+ * @author Quinn Chan - 103053395
  * @version JDK 14.0.2 - 22/10/2021
  */
 

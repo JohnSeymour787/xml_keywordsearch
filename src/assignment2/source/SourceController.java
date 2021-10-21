@@ -55,6 +55,8 @@ public class SourceController implements XMLController
                 MovieHandler handler = new MovieHandler(this.model);
                 saxParser.parse(selectedFile, handler);
 
+                view.clearTextArea();
+
                 displayMovies();
             }
             catch (ParserConfigurationException | SAXException | IOException e)
@@ -67,7 +69,10 @@ public class SourceController implements XMLController
         // If there are already movies when the controller is loaded, display them
         if (!this.model.isEmpty())
         {
+            view.clearTextArea();
+
             view.appendTextField("*****Last Loaded Movies:*****\r\n");
+
             displayMovies();
         }
     }
@@ -77,8 +82,6 @@ public class SourceController implements XMLController
      */
     private void displayMovies()
     {
-        view.clearTextArea();
-
         for (int i = 0; i < model.size(); i++)
         {
             view.appendTextField(model.get(i).toString());

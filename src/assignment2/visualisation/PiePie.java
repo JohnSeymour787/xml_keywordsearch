@@ -12,7 +12,7 @@ import javax.swing.JComponent;
 /**
  * PiePie is the class responsible for drawing the pie chart using graphics2d.
  *
- * @author Quinn Chan 103053395
+ * @author Quinn Chan - 103053395
  * @version JDK 14.0.2 - 22/10/2021
  */
 

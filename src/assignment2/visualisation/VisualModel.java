@@ -1,5 +1,10 @@
 package assignment2.visualisation;
 
+/**
+ * VisualModel is responsible for representing the frequency of a single keyword
+ *
+ * @author Quinn Chan - 103053395
+ */
 public class VisualModel implements Comparable<VisualModel> {
 	private int freq;
 	private String keyword;
