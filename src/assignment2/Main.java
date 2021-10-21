@@ -5,14 +5,12 @@ import javafx.embed.swing.SwingNode;
 import javax.swing.*;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 public class Main extends Application
 {
     public static final double SCREEN_WIDTH = 700;
-    public static final double SCREEN_HEIGHT = 500;
+    public static final double SCREEN_HEIGHT = 510;
 
     @Override
     public void start(Stage primaryStage)
@@ -33,12 +31,7 @@ public class Main extends Application
     }
     
     private void createAndSetSwingContent(final SwingNode swingNode) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                swingNode.setContent(new PacMan());
-            }
-        });
+        SwingUtilities.invokeLater(() -> swingNode.setContent(new PacMan()));
     }
 
     public static void main(String[] args)

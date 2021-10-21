@@ -133,7 +133,7 @@ public class VisualController implements XMLController {
 
 				XYChart.Series<String, Integer> series = new XYChart.Series<>();
 
-				for (int i = 0; i < top; i++) {
+				for (int i = 0; i < top && i < occurs.size(); i++) {
 					series.getData().add(new XYChart.Data(occurs.get(i).getKeyword(), occurs.get(i).getFreq()));
 				}
 				series.setName("Keyword Frequency");
@@ -167,7 +167,7 @@ public class VisualController implements XMLController {
 				root.getChildren().add(pieChart);
 				this.view.setPane(root);*/
 				
-				for (int i = 0; i < top; i++) {
+				for (int i = 0; i < top && i < occurs.size(); i++) {
 					newArr.add(occurs.get(i));
 				}
 				
