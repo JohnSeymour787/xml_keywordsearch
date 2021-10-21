@@ -52,6 +52,13 @@ public class SourceController implements XMLController
             }
             catch (ParserConfigurationException | SAXException | IOException e) { e.printStackTrace(); }
         });
+
+        // If there are already movies when the controller is loaded, display them
+        if (!this.model.isEmpty())
+        {
+            view.appendTextField("*****Last Loaded Movies:*****\r\n");
+            displayMovies();
+        }
     }
 
     /**
@@ -69,6 +76,8 @@ public class SourceController implements XMLController
                 view.appendTextField("\r\n");
             }
         }
+
+        view.scrollTextAreaToTop();
     }
 
     public Node getViewNode()

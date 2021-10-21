@@ -53,4 +53,9 @@ public class SourceView
     {
         textArea.appendText(toAppend + "\r\n");
     }
+
+    public void scrollTextAreaToTop()
+    {
+        textArea.setScrollTop(Double.MAX_VALUE);
+    }
 }

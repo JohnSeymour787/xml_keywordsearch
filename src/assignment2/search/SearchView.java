@@ -11,6 +11,12 @@ import javafx.scene.layout.GridPane;
 
 import java.util.List;
 
+/**
+ * MVC view for the search screen. Contains UI elements for getting the movie titles to search for and to display the
+ *  keywords to the user.
+ *
+ * @author Zichen Wu - 102849551
+ */
 public class SearchView {
     private final GridPane gridPane;
     private final Label label;

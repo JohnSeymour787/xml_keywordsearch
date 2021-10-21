@@ -6,6 +6,12 @@ import javafx.scene.Node;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * MVC controller for the search screen. Responsible for searching for movies by title and getting their
+ *  keywords.
+ *
+ * @author Zichen Wu - 102849551
+ */
 public class SearchController implements XMLController {
     private final SearchView view;
     private final ArrayList<Movie> movieList;
@@ -23,6 +29,16 @@ public class SearchController implements XMLController {
             String strOutput = searchMovies(movieList, inputTitles, keywordsList);
             this.view.setTextArea(strOutput);
         });
+
+        // If there are already keywords when the controller is loaded, display them
+        if (!this.keywordsList.isEmpty())
+        {
+            String output = "";
+            for (String keyword : this.keywordsList) {
+                output += keyword + "\r\n";
+            }
+            this.view.setTextArea(output);
+        }
     }
 
     private String[] splitInputTitle(String inputString) {
