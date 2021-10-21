@@ -2,6 +2,7 @@ package assignment2.search;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -35,6 +36,7 @@ public class SearchView {
         resultLabel = new Label("Keywords will be displayed here");
         textArea = new TextArea();
 
+        gridPane.setAlignment(Pos.TOP_CENTER);
         gridPane.addRow(0, label);
         gridPane.addRow(1, inputTextField);
         gridPane.addRow(1, buttonSearch);

@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Window;
 
 /**
@@ -23,10 +24,12 @@ public class SourceView
 
     public SourceView()
     {
+        HBox buttonRow = new HBox(chooseSourceButton, loadSourceButton);
+        buttonRow.setAlignment(Pos.CENTER);
+        buttonRow.setSpacing(50);
         gridPane.setAlignment(Pos.TOP_CENTER);
-        gridPane.addRow(0, chooseSourceButton);
-        gridPane.addRow(1, loadSourceButton);
-        gridPane.addRow(2, textArea);
+        gridPane.addRow(0, buttonRow);
+        gridPane.addRow(1, textArea);
     }
 
     public Node asNode()

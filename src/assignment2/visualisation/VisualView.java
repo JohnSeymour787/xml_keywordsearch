@@ -52,8 +52,9 @@ public class VisualView
     	btnPieChart.setMinWidth(100);
     	
     	HBox hboxChart = new HBox(10, btnBarChart, btnPieChart);
-    	hboxChart.setAlignment(Pos.CENTER); 
-    	
+    	hboxChart.setAlignment(Pos.CENTER);
+
+        gridPane.setAlignment(Pos.TOP_CENTER);
     	gridPane.addRow(0,root);
     	gridPane.addRow(1, hboxChart);
     	gridPane.addRow(2, pane);
