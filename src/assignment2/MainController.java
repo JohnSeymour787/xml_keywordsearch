@@ -10,6 +10,12 @@ import assignment2.visualisation.VisualView;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * MVC controller class for the main component. Responsible for creating other screens and their controllers
+ *  and enabling communication of the models between them.
+ *
+ * @author John Seymour - 101116720
+ */
 public class MainController
 {
     private final ArrayList<Movie> modelList = new ArrayList<>();
@@ -22,7 +28,6 @@ public class MainController
         {
             currentController = new SourceController(new SourceView(), modelList);
             view.updateDisplay(currentController.getViewNode());
-            // TODO() Create source screen view and update currentController, pass the controller the modelList, call view.updateDisplay
         });
 
         view.addSearchScreenListener(event ->
@@ -33,10 +38,8 @@ public class MainController
 
         view.addVisualisationScreenListener(event ->
         {
-            // TODO() Create source screen view and update currentController, pass the controller the modelList, call view.updateDisplay
-        	currentController = new VisualController(new VisualView(), keywordsList);
+            currentController = new VisualController(new VisualView(), keywordsList);
         	view.updateDisplay(currentController.getViewNode());
-        	//view.updateDisplay(new Label("Visualisation"));
         });
     }
 }

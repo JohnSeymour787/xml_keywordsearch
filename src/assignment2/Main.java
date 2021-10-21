@@ -11,6 +11,9 @@ import javafx.stage.Stage;
 
 public class Main extends Application
 {
+    public static final double SCREEN_WIDTH = 700;
+    public static final double SCREEN_HEIGHT = 500;
+
     @Override
     public void start(Stage primaryStage)
     {
@@ -23,7 +26,7 @@ public class Main extends Application
     	MainView mainView = new MainView();
     	mainView.updateDisplay(pane);
         new MainController(mainView);
-        Scene scene = new Scene(mainView.asParent(), 700, 500);
+        Scene scene = new Scene(mainView.asParent(), SCREEN_WIDTH, SCREEN_HEIGHT);
         primaryStage.setTitle("XML Keyword Search System");
         primaryStage.setScene(scene);
         primaryStage.show();

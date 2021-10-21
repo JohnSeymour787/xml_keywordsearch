@@ -3,7 +3,6 @@ package assignment2.search;
 import assignment2.Movie;
 import assignment2.XMLController;
 import javafx.scene.Node;
-
 import java.util.ArrayList;
 import java.util.List;
 

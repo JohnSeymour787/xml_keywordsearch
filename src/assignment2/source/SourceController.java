@@ -12,6 +12,12 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * MVC controller class for the Source Screen component of the program. Responsible for handling button
+ *  clicks from the SourceView and manipulating the Movie array model.
+ *
+ * @author John Seymour - 101116720
+ */
 public class SourceController implements XMLController
 {
     private final SourceView view;
@@ -32,6 +38,7 @@ public class SourceController implements XMLController
 
         this.view.setLoadButtonHandler(event ->
         {
+            // If loading multiple times, need to clear the list first
             model.clear();
 
             try
@@ -47,6 +54,9 @@ public class SourceController implements XMLController
         });
     }
 
+    /**
+     * Displays all movies in the movie array onto the view's text field.
+     */
     private void displayMovies()
     {
         for (int i = 0; i < model.size(); i++)

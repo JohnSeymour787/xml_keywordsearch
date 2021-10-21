@@ -3,10 +3,17 @@ package assignment2.source;
 import assignment2.Movie;
 import assignment2.Person;
 import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 import java.util.ArrayList;
 
+/**
+ * Custom SAX handler class designed to read an imdb XML file as provided for this assignment.
+ * Reads the entire contents of the file and converts each Movie found within a <Movie> tag to a
+ * Movie model object. Each new movie model is then added to a passed-by-reference ArrayList of
+ * Movies.
+ *
+ * @author John Seymour - 101116720
+ */
 public class MovieHandler extends DefaultHandler
 {
     private final ArrayList<Movie> movies;

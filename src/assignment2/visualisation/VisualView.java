@@ -16,7 +16,7 @@ import javafx.stage.Window;
 /**
  * VisualView is the class responsible for the view part of creating bar and pie charts.
  *
- * @author Quinn Chan 103053395
+ * @author Quinn Chan - 103053395
  * @version JDK 14.0.2 - 22/10/2021
  */
 public class VisualView

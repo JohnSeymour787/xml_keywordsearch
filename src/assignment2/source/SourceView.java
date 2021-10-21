@@ -9,6 +9,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Window;
 
+/**
+ * MVC view class for the Source Screen component. Contains the UI elements for this screen only.
+ *
+ * @author John Seymour - 101116720
+ */
 public class SourceView
 {
     private final GridPane gridPane = new GridPane();
