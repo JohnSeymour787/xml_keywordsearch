@@ -61,4 +61,9 @@ public class SourceView
     {
         textArea.setScrollTop(Double.MAX_VALUE);
     }
+
+    public void clearTextArea()
+    {
+        textArea.clear();
+    }
 }

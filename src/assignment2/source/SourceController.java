@@ -38,6 +38,13 @@ public class SourceController implements XMLController
 
         this.view.setLoadButtonHandler(event ->
         {
+            if (selectedFile == null)
+            {
+                view.clearTextArea();
+                view.appendTextField("*****Error, no file loaded*****");
+                return;
+            }
+
             // If loading multiple times, need to clear the list first
             model.clear();
 
@@ -50,7 +57,11 @@ public class SourceController implements XMLController
 
                 displayMovies();
             }
-            catch (ParserConfigurationException | SAXException | IOException e) { e.printStackTrace(); }
+            catch (ParserConfigurationException | SAXException | IOException e)
+            {
+                view.clearTextArea();
+                view.appendTextField("*****Error, no file loaded*****");
+            }
         });
 
         // If there are already movies when the controller is loaded, display them
@@ -66,6 +77,8 @@ public class SourceController implements XMLController
      */
     private void displayMovies()
     {
+        view.clearTextArea();
+
         for (int i = 0; i < model.size(); i++)
         {
             view.appendTextField(model.get(i).toString());
