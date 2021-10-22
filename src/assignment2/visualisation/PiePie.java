@@ -14,6 +14,7 @@ import javax.swing.JComponent;
  *
  * @author Quinn Chan - 103053395
  * @version JDK 14.0.2 - 22/10/2021
+ * @credits :https://stackoverflow.com/questions/13662984/creating-pie-charts-programmatically
  */
 
 class Slice {
