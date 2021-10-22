@@ -1,0 +1,31 @@
+
+SL# Description/Function Out of Marks:
+
+1 Provide flow charts of the logical details for the automated demo 20 
+Feature completed. Please refer to the flow chart.
+
+2 Provide UML diagrams as far as possible. 30
+Feature completed. Please refer to the UML diagram.
+
+3 Relate your work with Model Controller View (MVC) 40
+Feature complete. All parts of the program consist of model, view, and controller classes.
+
+4 Use JavaFX and advanced java features for the implementation as far as possible. 80
+Feature completed. Advanced features include the use of hash table, SAX Parser, and JavaFX.
+
+5 Use event handling. 40
+Feature completed. All buttons are linked to event handlers.
+
+6 Use Graphics2D as far as possible. 30
+Feature completed. Graphics2D is used for both decorative purpose and displaying pie charts.
+
+7 Include reasonable documentation according to the Javadoc Standards 10
+Feature completed. Javadocs are resonably added to all classes.
+
+8 A formally written word-version report with the clearly numbered screenshots related to the system components must be within your compressed folder 40
+Feature completed. Please refer to the attached report.
+
+9 A readme.txt file explaining features completed, expected mark and locating presence of codes from other sources 10
+Feature completed. Expected mark is 300. Credited codes can be found in:
+PiePie.java from "https://stackoverflow.com/questions/13662984/creating-pie-charts-programmatically"
+PacMan.java from "http://www.fredosaurus.com/notes-java/examples/graphics/face/face2app.html"
