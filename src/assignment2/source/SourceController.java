@@ -96,6 +96,7 @@ public class SourceController implements XMLController
         view.scrollTextAreaToTop();
     }
 
+    @Override
     public Node getViewNode()
     {
         return view.asNode();
